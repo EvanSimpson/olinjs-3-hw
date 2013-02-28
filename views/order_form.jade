@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	#order-form
+		form(method='post', action='/order/create')
+			p
+				label(for='name') Customer Name:
+				input(type='text', name='name', id='name')
+			p
+				label(for='ingredient')Pick ingredients:
+				each ingredient, i in ingredients
+					p
+						label(for='ingredient') #{ingredient.name}: $#{ingredient.cost}
+						input(type='checkbox', name='ingredient', value= ingredient._id ) 
+				input(type='submit', id='new-order', value='Submit Order')

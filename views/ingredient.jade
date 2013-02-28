@@ -1,0 +1,19 @@
+extends layout
+
+block content
+	#ingredients
+		h1 Ingredients
+		each ingredient, i in ingredients
+			div(value = ingredient.name)
+				p #{ingredient.name} : $#{ingredient.cost}
+					form(method='post', action='/ingredient/delete')
+						input(type='hidden', name='name', value= ingredient.name)
+						button Delete
+	#new-ingredient
+		h2 Add a new ingredient:
+		form(method='post', action='/ingredient/create')
+			label(for='name') Name:
+			input(type="text", name='name', id='name')
+			label(for='cost') Cost:
+			input(type='text', name='cost', id='cost')
+			input(type="submit", name='submit', value='Submit')
