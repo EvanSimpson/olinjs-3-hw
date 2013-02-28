@@ -23,6 +23,7 @@ exports.create = function(req, res){
 };
 
 exports.complete = function(req, res){
+	console.log(req.body);
 	Ord.findOneAndRemove({_id: req.body.id}).exec(function(err, docs){
 		res.redirect('/orders');
 	});

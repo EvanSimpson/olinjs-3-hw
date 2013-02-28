@@ -5,8 +5,8 @@ block content
 		Standing Orders:
 	#orders
 		each order, i in orders
-			div
+			div(id= order._id)
 				| Customer name: #{order.customer}
-				form(method='post', action='/order/complete')
+				form(method='post', class='complete', action='/order/complete')
 					input(type='hidden', name='id', value= order._id );
-					input(type='submit', id='complete', value='Complete Order')
+					input(type='submit', value='Complete Order')
